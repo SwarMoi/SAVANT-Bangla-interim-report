@@ -1,0 +1,42 @@
+---
+title: "BanglaReport SAVANT"
+author: "Swarnendu Moitra"
+format: html
+editor: visual
+---
+
+# Tark Localiser
+
+## letter vs Symbol
+
+![letter_symbol_RH](Tark/letter_symbol/0_letter.nonLetter_0.14500000000000002-0.189_p0.0164_both_ventral-brainCluster.png){width="40%"}
+
+{{< embed 01_Plots/Tark_analysis_complete.qmd#fig-letter_symbol_rh >}}
+
+## Word vs Symbol
+
+#### Right Hemi
+
+![word_symbols_RH](Tark/word_symbols/0_letterWord.nonLetterWord_0.157-0.198_p0.0196_both_ventral-brainCluster.png){width="40%"}
+
+{{< embed 01_Plots/Tark_analysis_complete.qmd#fig-word_symbols_rh >}}
+
+#### Left Hemi
+
+![word_symbols_LH](Tark/word_symbols/0_letterWord.nonLetterWord_0.163-0.197_p0.0173_both_ventral-brainCluster.png){width="40%"}
+
+{{< embed 01_Plots/Tark_analysis_complete.qmd#fig-word_symbols_lh >}}
+
+# Decomposition Stage
+
+## Tark fROI
+
+## Regression
+
+# Recompositiion Stage
+
+## M350
+
+## TL 300 - 500
+
+## OF 400 - 500
