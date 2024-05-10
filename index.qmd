@@ -9,6 +9,52 @@ format:
 editor: visual
 ---
 
+# Behavioural
+
+## RT
+
+-   Most Complex fit : `lmer(RT ~ Condition * Prefix + logstemFreq + (1+Prefix|Participant) + (1|Item)`
+-   Model Summary
+
+**Prefix = duh:**
+
+|     contrast      | estimate |  SE  | z.ratio | p.value |
+|:-----------------:|:--------:|:----:|:-------:|:-------:|
+|  Gramm - CatViol  |  -75.8   | 15.0 | -5.057  | \<.0001 |
+|  Gramm - SemViol  |  -39.2   | 15.2 | -2.589  | 0.0261  |
+| CatViol - SemViol |   36.6   | 12.9 |  2.826  | 0.0131  |
+
+**Prefix = proti:**
+
+|     contrast      | estimate |  SE  | z.ratio | p.value |
+|:-----------------:|:--------:|:----:|:-------:|:-------:|
+|  Gramm - CatViol  |  -40.0   | 13.8 | -2.899  | 0.0105  |
+|  Gramm - SemViol  |  -21.8   | 13.9 | -1.564  | 0.2612  |
+| CatViol - SemViol |   18.2   | 12.9 |  1.412  | 0.3344  |
+
+## ACC
+
+-   Most complex model fit `glmer(ACC ~ Condition * Prefix + (1+Prefix|Participant) + (1|Item)`
+-   Model Summary
+
+**Prefix = duh:**
+
+|     contrast      | estimate |   SE   | z.ratio | p.value |
+|:-----------------:|:--------:|:------:|:-------:|:-------:|
+|  Gramm - CatViol  | 0.00273  | 0.0368 | -0.074  | 0.9970  |
+|  Gramm - SemViol  | -0.08139 | 0.0368 | -2.210  | 0.0695  |
+| CatViol - SemViol | -0.7866  | 0.0332 | -2.368  | 0.0470  |
+
+**Prefix = proti:**
+
+|     contrast      | estimate |   SE   | z.ratio | p.value |
+|:-----------------:|:--------:|:------:|:-------:|:-------:|
+|  Gramm - CatViol  | -0.16638 | 0.0342 | -4.870  | 0.0001  |
+|  Gramm - SemViol  | -0.16308 | 0.0342 | -4.773  | 0.0001  |
+| CatViol - SemViol | 0.00331  | 0.0332 |  0.100  | 0.9945  |
+
+-   Plot![ACC and RT plot](images/ACC_RT.png){width="882"}
+
 # Tark Localiser
 
 ## letter vs Symbol
@@ -39,7 +85,13 @@ editor: visual
 
 # Decomposition Stage
 
-## Tark fROI
+## M170 : (150 - 210) ROI : left Fusiform
+
+dSPM \~ logTP + logWholeWord  + logStemFreq + WLc
+
+![A: M170 ; TP Cluster (151 - 186)ms, p=0.0359 \| B: Tark fROI](images/image (16).png){fig-align="center"}
+
+Reanalysing!!
 
 # Recompositiion Stage
 
@@ -47,32 +99,46 @@ editor: visual
 
 NO Significant clusters
 
-## TL 300 - 500
+## TL (200-500)ms
 
 ### 2x2 anova
 
-![LH - 396-485ms - p0.0056](images/0_ProtiViol_0.396-0.48500000000000004_p0.0056_lh_lateral-brainCluster.png){width="252"}
+#### Cluster 1: RH CatViol (244-286)ms \| p0.0197
 
-![](images/0_CatViol_0.23900000000000002-0.279_p0.0044_-barPlot.png){width="252"}
+![](images/0_CatViol_0.244-0.28600000000000003_p0.0197_rh_lateral-brainCluster.png){fig-align="center" width="320"}
 
-## OF 400 - 500
+![](images/0_CatViol_0.244-0.28600000000000003_p0.0197_-barPlot.png){fig-align="center" width="320"}
+
+### 3x2 anova
+
+#### Cluster 1: CatViol (234-286)ms \| p0.0101
+
+![](images/0_CatViol_0.234-0.28600000000000003_p0.0101_rh_lateral-brainCluster.png){fig-align="center" width="320"}
+
+![](images/0_CatViol_0.234-0.28600000000000003_p0.0101_-barPlot.png){fig-align="center" width="320"}
+
+#### Cluster 2 : LH Violation x Prefix (442-500)ms \| p0.025
+
+![](images/0_CatViol%20x%20Proti_0.442-0.5_p0.025_lh_lateral-brainCluster.png){fig-align="center" width="320"}
+
+![](images/0_CatViol%20x%20Proti_0.442-0.5_p0.025_-barPlot.png){fig-align="center" width="320"}
+
+## OF (200 - 500)ms
 
 ### 2x2 anova
 
-#### 1st cluster: LH - 396-485ms - p0.0056
+#### Cluster 1: LH CatViol (238 - 279)ms \| p0.0049
 
-![LH - 237-281ms_p0.0311](images/1_CatViol_0.23700000000000002-0.281_p0.0311_lh_ventral-brainCluster.png){width="252"}
+![](images/0_CatViol_0.23800000000000002-0.279_p0.0049_lh_ventral-brainCluster.png){fig-align="center" width="320"}
 
-![](images/0_CatViol%20x%20ProtiViol_0.41300000000000003-0.459_p0.0279_-barPlot.png){width="252"}
+![](images/0_CatViol_0.23800000000000002-0.279_p0.0049_-barPlot.png){fig-align="center" width="320"}
 
-#### 2nd cluster: LH - 237-281_p0.0311
+#### Cluster 2: LH Violation x Prefix (424-452)ms \| p0.0472
 
-![LH - 237-281_p0.0311](images/1_CatViol_0.23700000000000002-0.281_p0.0311_lh_ventral-brainCluster-01.png){width="252"}
+![](images/1_CatViol%20x%20Proti_0.42400000000000004-0.452_p0.0472_lh_ventral-brainCluster.png){fig-align="center" width="320"}
 
-![](images/1_CatViol_0.23700000000000002-0.281_p0.0311_-barPlot-01.png){width="252"}
+![](images/1_CatViol%20x%20Proti_0.42400000000000004-0.452_p0.0472_-barPlot.png){fig-align="center" width="320"}
 
-#### 3rd cluster: RH - 304-378_p0.0217
+### 3x2 anova
 
-![RH - 304-378_p0.0217](images/0_CatViol_0.30400000000000005-0.378_p0.0217_rh_ventral-brainCluster-01.png){width="252"}
-
-![](images/0_CatViol_0.30400000000000005-0.378_p0.0217_-barPlot.png){width="252"}
+#### No Clusters
